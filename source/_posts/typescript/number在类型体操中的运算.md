@@ -50,5 +50,22 @@ type cases = [
 ]
 ```
 
-### 2、数学运算
-> 一般很少在类型体操中直接进行数学运算。待定...
+### 2、加法运算
+
+```ts
+type BuildArray<Length extends number, Ele  = unknown, Arr extends unknown[] = []> =
+    Arr['length'] extends Length
+        ? Arr
+        : BuildArray<Length, Ele, [...Arr, Ele]>
+
+type Add<Num1 extends number, Num2 extends number> = 
+    [...BuildArray<Num1>, ...BuildArray<Num2>]['length']
+
+type Add2<Num1 extends 1000, Num2 extends 1> = 
+    [...BuildArray<Num1>, ...BuildArray<Num2>]['length']
+
+type AddResult1 = Add<999, 1> // 1000
+type AddResult2 = Add<1000, 1> // Type instantiation is excessively deep and possibly infinite: 类型深度可能是无限的 
+```
+
+> ts在递归超过1000次的时候会报 深度可能是无限的错误
