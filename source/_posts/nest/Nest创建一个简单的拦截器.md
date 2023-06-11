@@ -40,8 +40,8 @@ export class ResponseInterceptor<T> implements NestInterceptor {
 
 ### 1、实现 `NestInterceptor` 类中的方法 `intercept`
 `intercept` 函数两个参数
-`context`: ExecutionContext 执行上下文  可以获取 getClass getHandler
-`CallHandler`: 只有一个handle方法，返回一个Observable 监听响应数据流
+- `context`: ExecutionContext 执行上下文  可以获取 getClass getHandler
+- `CallHandler`: 只有一个handle方法，返回一个Observable 监听响应数据流
 ```ts
 export interface NestInterceptor<T = any, R = any> {
     /**
