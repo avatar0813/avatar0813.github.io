@@ -43,6 +43,25 @@ export class Logger implements NestMiddleware {
 }
 ```
 
+### 中间件中注入其他服务
+`Nest`将中间件做成类的另一个好处就是可以注入其他服务
+```ts
+@Injectable()
+export class Logger implements NestMiddleware {
+  // @Inject(AppService)
+  // private readonly appService: AppService;
+
+  constructor(private readonly appService: AppService) {}
+
+  use(req: Request, res: Response, next: NextFunction) {
+    console.log('中间件拦截');
+    console.log('中间件调用其他服务:', this.appService.getHello());
+    next();
+  }
+}
+
+```
+
 ### 自定义中间件的使用
 在`module`中使用，`module`实现`NestModule`类
 ```ts
