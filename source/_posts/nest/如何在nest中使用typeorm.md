@@ -55,14 +55,14 @@ import { TypeOrmModule } from '@nestjs/typeorm';
       username: 'root',
       password: 'root',
       database: 'typeorm_mysql',
-      synchronize: true,
+      synchronize: true, // 没有的表情况是否同步创建
       logging: true,
-      entities: ['./**/entities/*.ts'],
-      poolSize: 10,
+      entities: ['./**/entities/*.ts'], // 关联的实体类
+      poolSize: 10, // 数据库连接池的最大数量
       migrations: [],
       subscribers: [],
-      connectorPackage: 'mysql2',
-      extra: {
+      connectorPackage: 'mysql2', // 驱动包
+      extra: { // 发送给驱动包的参数
         authPlugin: 'sha256_password',
       },
     }),
