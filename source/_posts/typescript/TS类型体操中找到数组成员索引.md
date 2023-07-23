@@ -3,6 +3,7 @@ title: TS类型体操中找到数组成员索引
 date: 2023-04-30 19:56:19
 tags: [TypeScript, 数组]
 index_img: /img/TypeScript.png
+categories: [学习]
 ---
 ### 如何在类型体操中找到一个数组的索引
 

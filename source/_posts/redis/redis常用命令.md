@@ -3,6 +3,7 @@ title: redis的常用命令
 date: 2023-06-25 11:55:37
 tags: [Redis]
 index_img: /img/redis.svg
+categories: [学习]
 ---
 ## redis的常用命令
 

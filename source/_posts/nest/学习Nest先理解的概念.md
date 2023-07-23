@@ -3,6 +3,7 @@ title: 学习Nest先理解的概念
 date: 2023-06-04 11:44:11
 tags: [Nest]
 index_img: /img/nest.svg
+categories: [学习]
 ---
 
 ## 什么是IOC (inverse of control)

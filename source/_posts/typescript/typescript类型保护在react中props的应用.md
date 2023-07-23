@@ -3,6 +3,7 @@ title: typescript类型保护在react中props的应用
 date: 2023-07-22 09:46:03
 tags: [TypeScript]
 index_img: /img/TypeScript.png
+categories: [学习]
 ---
 
 # typescript类型保护在react中props的应用

@@ -3,6 +3,7 @@ title: 如何在nest中使用typeorm.md
 date: 2023-06-25 11:36:37
 tags: [Nest]
 index_img: /img/nest.svg
+categories: [学习]
 ---
 # 如何在nest中使用typeorm
 

@@ -3,6 +3,7 @@ title: number 在类型体操中的运算
 date: 2023-04-30 19:53:00
 tags: [TypeScript]
 index_img: /img/TypeScript.png
+categories: [学习]
 ---
 
 > 在TS类型体操运算中有时候涉及到number类型的操作比较麻烦

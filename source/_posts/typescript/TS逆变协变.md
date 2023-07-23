@@ -3,6 +3,7 @@ title: TS逆变协变
 date: 2023-05-09 20:45:01
 tags: [TypeScript]
 index_img: /img/TypeScript.png
+categories: [学习]
 ---
 ## TS逆变协变
 

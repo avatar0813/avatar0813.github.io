@@ -4,6 +4,7 @@ title: TS定义类型声明
 date: 2023-05-14 17:17:10
 tags: [TypeScript]
 index_img: /img/TypeScript.png
+categories: [学习]
 ---
 ## 初始化一个ts项目
 全局安装`typescript`, `tsc` 是typescript的脚手架工具， 安装了`typescript` 就会携带 `tsc`，
