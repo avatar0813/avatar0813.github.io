@@ -5,7 +5,7 @@
 # Site
 title: avatarのblog
 subtitle: ''
-description: '欧阳康的个人博客'
+description: 'avatarのblog'
 keywords:
 author: avatar
 language: zh-CN
@@ -13,7 +13,7 @@ timezone: 'Asia/Shanghai'
 
 # URL
 ## Set your site url here. For example, if you use GitHub Page, set url as 'https://username.github.io/project'
-url: https://github.com/avatar0813/avatar0813.github.io
+url: https://avatar0813.github.io
 permalink: :year/:month/:day/:title/
 permalink_defaults:
 pretty_urls:
@@ -98,10 +98,5 @@ ignore:
 ## Plugins: https://hexo.io/plugins/
 ## Themes: https://hexo.io/themes/
 theme: fluid
-
 # Deployment
 ## Docs: https://hexo.io/docs/one-command-deployment
-deploy:
-  type: git
-  repo: https://github.com/avatar0813/avatar0813.github.io
-  branch: gh-pages
