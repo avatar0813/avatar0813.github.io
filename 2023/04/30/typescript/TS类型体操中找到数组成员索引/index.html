@@ -7,8 +7,8 @@
 
 <head>
   <meta charset="UTF-8">
-  <link rel="apple-touch-icon" sizes="76x76" href="/avatar0813/avatar0813.github.io/img/avatar.png">
-  <link rel="icon" href="/avatar0813/avatar0813.github.io/img/avatar.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/avatar.png">
+  <link rel="icon" href="/img/avatar.png">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   
@@ -19,18 +19,18 @@
     <meta name="description" content="如何在类型体操中找到一个数组的索引参考 type-challenges 中的中等题 indexOf 测试用例 1234567891011 import type &amp;#123; Equal, Expect &amp;#125; from &amp;#x27;@type-challenges&#x2F;utils&amp;#x27;type cases &#x3D; [  Expect&lt;Equal&lt;IndexOf&lt;[1, 2,">
 <meta property="og:type" content="article">
 <meta property="og:title" content="TS类型体操中找到数组成员索引">
-<meta property="og:url" content="https://github.com/avatar0813/avatar0813.github.io/2023/04/30/typescript/TS%E7%B1%BB%E5%9E%8B%E4%BD%93%E6%93%8D%E4%B8%AD%E6%89%BE%E5%88%B0%E6%95%B0%E7%BB%84%E6%88%90%E5%91%98%E7%B4%A2%E5%BC%95/index.html">
+<meta property="og:url" content="https://avatar0813.github.io/2023/04/30/typescript/TS%E7%B1%BB%E5%9E%8B%E4%BD%93%E6%93%8D%E4%B8%AD%E6%89%BE%E5%88%B0%E6%95%B0%E7%BB%84%E6%88%90%E5%91%98%E7%B4%A2%E5%BC%95/index.html">
 <meta property="og:site_name" content="avatarのblog">
 <meta property="og:description" content="如何在类型体操中找到一个数组的索引参考 type-challenges 中的中等题 indexOf 测试用例 1234567891011 import type &amp;#123; Equal, Expect &amp;#125; from &amp;#x27;@type-challenges&#x2F;utils&amp;#x27;type cases &#x3D; [  Expect&lt;Equal&lt;IndexOf&lt;[1, 2,">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://github.com/avatar0813/avatar0813.github.io/img/TypeScript.png">
+<meta property="og:image" content="https://avatar0813.github.io/img/TypeScript.png">
 <meta property="article:published_time" content="2023-04-30T11:56:19.000Z">
-<meta property="article:modified_time" content="2023-07-23T01:32:19.696Z">
+<meta property="article:modified_time" content="2023-07-23T01:40:53.803Z">
 <meta property="article:author" content="avatar">
 <meta property="article:tag" content="TypeScript">
 <meta property="article:tag" content="数组">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://github.com/avatar0813/avatar0813.github.io/img/TypeScript.png">
+<meta name="twitter:image" content="https://avatar0813.github.io/img/TypeScript.png">
   
   
   
@@ -58,12 +58,12 @@
 <link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
 
 
-<link  rel="stylesheet" href="/avatar0813/avatar0813.github.io/css/main.css" />
+<link  rel="stylesheet" href="/css/main.css" />
 
 
-  <link id="highlight-css" rel="stylesheet" href="/avatar0813/avatar0813.github.io/css/highlight.css" />
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
   
-    <link id="highlight-css-dark" rel="stylesheet" href="/avatar0813/avatar0813.github.io/css/highlight-dark.css" />
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
   
 
 
@@ -72,15 +72,15 @@
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
     Fluid.ctx = Object.assign({}, Fluid.ctx)
-    var CONFIG = {"hostname":"github.com","root":"/avatar0813/avatar0813.github.io/","version":"1.9.4","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/avatar0813/avatar0813.github.io/local-search.xml"};
+    var CONFIG = {"hostname":"avatar0813.github.io","root":"/","version":"1.9.4","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
 
     if (CONFIG.web_analytics.follow_dnt) {
       var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
       Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
     }
   </script>
-  <script  src="/avatar0813/avatar0813.github.io/js/utils.js" ></script>
-  <script  src="/avatar0813/avatar0813.github.io/js/color-schema.js" ></script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
   
 
 
@@ -97,7 +97,7 @@
 <div class="header-inner" style="height: 70vh;">
   <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
-    <a class="navbar-brand" href="/avatar0813/avatar0813.github.io/">
+    <a class="navbar-brand" href="/">
       <strong>avatarのblog</strong>
     </a>
 
@@ -116,7 +116,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/avatar0813/avatar0813.github.io/">
+              <a class="nav-link" href="/">
                 <i class="iconfont icon-home-fill"></i>
                 <span>首页</span>
               </a>
@@ -128,7 +128,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/avatar0813/avatar0813.github.io/archives/">
+              <a class="nav-link" href="/archives/">
                 <i class="iconfont icon-archive-fill"></i>
                 <span>归档</span>
               </a>
@@ -140,7 +140,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/avatar0813/avatar0813.github.io/categories/">
+              <a class="nav-link" href="/categories/">
                 <i class="iconfont icon-category-fill"></i>
                 <span>分类</span>
               </a>
@@ -152,7 +152,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/avatar0813/avatar0813.github.io/tags/">
+              <a class="nav-link" href="/tags/">
                 <i class="iconfont icon-tags-fill"></i>
                 <span>标签</span>
               </a>
@@ -164,7 +164,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/avatar0813/avatar0813.github.io/about/">
+              <a class="nav-link" href="/about/">
                 <i class="iconfont icon-user-fill"></i>
                 <span>关于</span>
               </a>
@@ -194,7 +194,7 @@
   
 
 <div id="banner" class="banner" parallax=true
-     style="background: url('/avatar0813/avatar0813.github.io/img/default.png') no-repeat center center; background-size: cover;">
+     style="background: url('/img/default.png') no-repeat center center; background-size: cover;">
   <div class="full-bg-img">
     <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
       <div class="banner-text text-center fade-in-up">
@@ -277,7 +277,7 @@
             
               <div class="markdown-body">
                 
-                <h3 id="如何在类型体操中找到一个数组的索引"><a href="#如何在类型体操中找到一个数组的索引" class="headerlink" title="如何在类型体操中找到一个数组的索引"></a>如何在类型体操中找到一个数组的索引</h3><p>参考 <code>type-challenges</code> 中的中等题 <a href="https://github.com/type-challenges/type-challenges/tree/main/questions/05153-medium-indexof"><code>indexOf</code></a></p>
+                <h3 id="如何在类型体操中找到一个数组的索引"><a href="#如何在类型体操中找到一个数组的索引" class="headerlink" title="如何在类型体操中找到一个数组的索引"></a>如何在类型体操中找到一个数组的索引</h3><p>参考 <code>type-challenges</code> 中的中等题 <a target="_blank" rel="noopener" href="https://github.com/type-challenges/type-challenges/tree/main/questions/05153-medium-indexof"><code>indexOf</code></a></p>
 <h4 id="测试用例"><a href="#测试用例" class="headerlink" title="测试用例"></a>测试用例</h4> <figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs ts"> <span class="hljs-keyword">import</span> <span class="hljs-keyword">type</span> &#123; <span class="hljs-title class_">Equal</span>, <span class="hljs-title class_">Expect</span> &#125; <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;@type-challenges/utils&#x27;</span><br><br><span class="hljs-keyword">type</span> cases = [<br>  <span class="hljs-title class_">Expect</span>&lt;<span class="hljs-title class_">Equal</span>&lt;<span class="hljs-title class_">IndexOf</span>&lt;[<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>], <span class="hljs-number">2</span>&gt;, <span class="hljs-number">1</span>&gt;&gt;,<br>  <span class="hljs-title class_">Expect</span>&lt;<span class="hljs-title class_">Equal</span>&lt;<span class="hljs-title class_">IndexOf</span>&lt;[<span class="hljs-number">2</span>, <span class="hljs-number">6</span>, <span class="hljs-number">3</span>, <span class="hljs-number">8</span>, <span class="hljs-number">4</span>, <span class="hljs-number">1</span>, <span class="hljs-number">7</span>, <span class="hljs-number">3</span>, <span class="hljs-number">9</span>], <span class="hljs-number">3</span>&gt;, <span class="hljs-number">2</span>&gt;&gt;,<br>  <span class="hljs-title class_">Expect</span>&lt;<span class="hljs-title class_">Equal</span>&lt;<span class="hljs-title class_">IndexOf</span>&lt;[<span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>], <span class="hljs-number">2</span>&gt;, -<span class="hljs-number">1</span>&gt;&gt;,<br>  <span class="hljs-title class_">Expect</span>&lt;<span class="hljs-title class_">Equal</span>&lt;<span class="hljs-title class_">IndexOf</span>&lt;[<span class="hljs-built_in">string</span>, <span class="hljs-number">1</span>, <span class="hljs-built_in">number</span>, <span class="hljs-string">&#x27;a&#x27;</span>], <span class="hljs-built_in">number</span>&gt;, <span class="hljs-number">2</span>&gt;&gt;,<br>  <span class="hljs-title class_">Expect</span>&lt;<span class="hljs-title class_">Equal</span>&lt;<span class="hljs-title class_">IndexOf</span>&lt;[<span class="hljs-built_in">string</span>, <span class="hljs-number">1</span>, <span class="hljs-built_in">number</span>, <span class="hljs-string">&#x27;a&#x27;</span>, <span class="hljs-built_in">any</span>], <span class="hljs-built_in">any</span>&gt;, <span class="hljs-number">4</span>&gt;&gt;,<br>  <span class="hljs-title class_">Expect</span>&lt;<span class="hljs-title class_">Equal</span>&lt;<span class="hljs-title class_">IndexOf</span>&lt;[<span class="hljs-built_in">string</span>, <span class="hljs-string">&#x27;a&#x27;</span>], <span class="hljs-string">&#x27;a&#x27;</span>&gt;, <span class="hljs-number">1</span>&gt;&gt;,<br>  <span class="hljs-title class_">Expect</span>&lt;<span class="hljs-title class_">Equal</span>&lt;<span class="hljs-title class_">IndexOf</span>&lt;[<span class="hljs-built_in">any</span>, <span class="hljs-number">1</span>], <span class="hljs-number">1</span>&gt;, <span class="hljs-number">1</span>&gt;&gt;,<br>]<br></code></pre></td></tr></table></figure>
 
 <p>要求在元组中根据成员找到下标</p>
@@ -308,9 +308,9 @@
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/avatar0813/avatar0813.github.io/tags/TypeScript/">#TypeScript</a>
+        <a href="/tags/TypeScript/">#TypeScript</a>
       
-        <a href="/avatar0813/avatar0813.github.io/tags/%E6%95%B0%E7%BB%84/">#数组</a>
+        <a href="/tags/%E6%95%B0%E7%BB%84/">#数组</a>
       
     </div>
   
@@ -323,7 +323,7 @@
   <div class="license-box my-3">
     <div class="license-title">
       <div>TS类型体操中找到数组成员索引</div>
-      <div>https://github.com/avatar0813/avatar0813.github.io/2023/04/30/typescript/TS类型体操中找到数组成员索引/</div>
+      <div>https://avatar0813.github.io/2023/04/30/typescript/TS类型体操中找到数组成员索引/</div>
     </div>
     <div class="license-meta">
       
@@ -367,7 +367,7 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/avatar0813/avatar0813.github.io/2023/05/09/typescript/TS%E9%80%86%E5%8F%98%E5%8D%8F%E5%8F%98/" title="TS逆变协变">
+                      <a href="/2023/05/09/typescript/TS%E9%80%86%E5%8F%98%E5%8D%8F%E5%8F%98/" title="TS逆变协变">
                         <i class="iconfont icon-arrowleft"></i>
                         <span class="hidden-mobile">TS逆变协变</span>
                         <span class="visible-mobile">上一篇</span>
@@ -377,7 +377,7 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/avatar0813/avatar0813.github.io/2023/04/30/typescript/number%E5%9C%A8%E7%B1%BB%E5%9E%8B%E4%BD%93%E6%93%8D%E4%B8%AD%E7%9A%84%E8%BF%90%E7%AE%97/" title="number 在类型体操中的运算">
+                      <a href="/2023/04/30/typescript/number%E5%9C%A8%E7%B1%BB%E5%9E%8B%E4%BD%93%E6%93%8D%E4%B8%AD%E7%9A%84%E8%BF%90%E7%AE%97/" title="number 在类型体操中的运算">
                         <span class="hidden-mobile">number 在类型体操中的运算</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
@@ -507,8 +507,8 @@
 
 <script  src="https://lib.baomitu.com/jquery/3.6.0/jquery.min.js" ></script>
 <script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
-<script  src="/avatar0813/avatar0813.github.io/js/events.js" ></script>
-<script  src="/avatar0813/avatar0813.github.io/js/plugins.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
 
 
   <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
@@ -530,7 +530,7 @@
 
 
   
-    <script  src="/avatar0813/avatar0813.github.io/js/img-lazyload.js" ></script>
+    <script  src="/js/img-lazyload.js" ></script>
   
 
 
@@ -629,7 +629,7 @@
 
   <script>Fluid.plugins.imageCaption();</script>
 
-  <script  src="/avatar0813/avatar0813.github.io/js/local-search.js" ></script>
+  <script  src="/js/local-search.js" ></script>
 
 
 
@@ -637,7 +637,7 @@
 
 <!-- 主题的启动项，将它保持在最底部 -->
 <!-- the boot of the theme, keep it at the bottom -->
-<script  src="/avatar0813/avatar0813.github.io/js/boot.js" ></script>
+<script  src="/js/boot.js" ></script>
 
 
   

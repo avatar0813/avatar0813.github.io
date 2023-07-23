@@ -7,8 +7,8 @@
 
 <head>
   <meta charset="UTF-8">
-  <link rel="apple-touch-icon" sizes="76x76" href="/avatar0813/avatar0813.github.io/img/avatar.png">
-  <link rel="icon" href="/avatar0813/avatar0813.github.io/img/avatar.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/avatar.png">
+  <link rel="icon" href="/img/avatar.png">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   
@@ -19,17 +19,17 @@
     <meta name="description" content="初始化一个ts项目全局安装typescript, tsc 是typescript的脚手架工具， 安装了typescript 就会携带 tsc， 初始化ts配置文件 tsconfig.json 1tsc --init  自定义类型来源namespace 命名空间命名空间会在全局上挂载一个对象如： 1234567&#x2F;&#x2F; index.tsconst result &#x3D; MyLib.getResult()&#x2F;&#x2F;">
 <meta property="og:type" content="article">
 <meta property="og:title" content="TS定义类型声明">
-<meta property="og:url" content="https://github.com/avatar0813/avatar0813.github.io/2023/05/14/typescript/TS%E5%AE%9A%E4%B9%89%E7%B1%BB%E5%9E%8B%E5%A3%B0%E6%98%8E/index.html">
+<meta property="og:url" content="https://avatar0813.github.io/2023/05/14/typescript/TS%E5%AE%9A%E4%B9%89%E7%B1%BB%E5%9E%8B%E5%A3%B0%E6%98%8E/index.html">
 <meta property="og:site_name" content="avatarのblog">
 <meta property="og:description" content="初始化一个ts项目全局安装typescript, tsc 是typescript的脚手架工具， 安装了typescript 就会携带 tsc， 初始化ts配置文件 tsconfig.json 1tsc --init  自定义类型来源namespace 命名空间命名空间会在全局上挂载一个对象如： 1234567&#x2F;&#x2F; index.tsconst result &#x3D; MyLib.getResult()&#x2F;&#x2F;">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://github.com/avatar0813/avatar0813.github.io/img/TypeScript.png">
+<meta property="og:image" content="https://avatar0813.github.io/img/TypeScript.png">
 <meta property="article:published_time" content="2023-05-14T09:17:10.000Z">
-<meta property="article:modified_time" content="2023-07-23T01:32:19.696Z">
+<meta property="article:modified_time" content="2023-07-23T01:40:53.803Z">
 <meta property="article:author" content="avatar">
 <meta property="article:tag" content="TypeScript">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://github.com/avatar0813/avatar0813.github.io/img/TypeScript.png">
+<meta name="twitter:image" content="https://avatar0813.github.io/img/TypeScript.png">
   
   
   
@@ -57,12 +57,12 @@
 <link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
 
 
-<link  rel="stylesheet" href="/avatar0813/avatar0813.github.io/css/main.css" />
+<link  rel="stylesheet" href="/css/main.css" />
 
 
-  <link id="highlight-css" rel="stylesheet" href="/avatar0813/avatar0813.github.io/css/highlight.css" />
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
   
-    <link id="highlight-css-dark" rel="stylesheet" href="/avatar0813/avatar0813.github.io/css/highlight-dark.css" />
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
   
 
 
@@ -71,15 +71,15 @@
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
     Fluid.ctx = Object.assign({}, Fluid.ctx)
-    var CONFIG = {"hostname":"github.com","root":"/avatar0813/avatar0813.github.io/","version":"1.9.4","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/avatar0813/avatar0813.github.io/local-search.xml"};
+    var CONFIG = {"hostname":"avatar0813.github.io","root":"/","version":"1.9.4","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
 
     if (CONFIG.web_analytics.follow_dnt) {
       var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
       Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
     }
   </script>
-  <script  src="/avatar0813/avatar0813.github.io/js/utils.js" ></script>
-  <script  src="/avatar0813/avatar0813.github.io/js/color-schema.js" ></script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
   
 
 
@@ -96,7 +96,7 @@
 <div class="header-inner" style="height: 70vh;">
   <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
-    <a class="navbar-brand" href="/avatar0813/avatar0813.github.io/">
+    <a class="navbar-brand" href="/">
       <strong>avatarのblog</strong>
     </a>
 
@@ -115,7 +115,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/avatar0813/avatar0813.github.io/">
+              <a class="nav-link" href="/">
                 <i class="iconfont icon-home-fill"></i>
                 <span>首页</span>
               </a>
@@ -127,7 +127,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/avatar0813/avatar0813.github.io/archives/">
+              <a class="nav-link" href="/archives/">
                 <i class="iconfont icon-archive-fill"></i>
                 <span>归档</span>
               </a>
@@ -139,7 +139,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/avatar0813/avatar0813.github.io/categories/">
+              <a class="nav-link" href="/categories/">
                 <i class="iconfont icon-category-fill"></i>
                 <span>分类</span>
               </a>
@@ -151,7 +151,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/avatar0813/avatar0813.github.io/tags/">
+              <a class="nav-link" href="/tags/">
                 <i class="iconfont icon-tags-fill"></i>
                 <span>标签</span>
               </a>
@@ -163,7 +163,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/avatar0813/avatar0813.github.io/about/">
+              <a class="nav-link" href="/about/">
                 <i class="iconfont icon-user-fill"></i>
                 <span>关于</span>
               </a>
@@ -193,7 +193,7 @@
   
 
 <div id="banner" class="banner" parallax=true
-     style="background: url('/avatar0813/avatar0813.github.io/img/default.png') no-repeat center center; background-size: cover;">
+     style="background: url('/img/default.png') no-repeat center center; background-size: cover;">
   <div class="full-bg-img">
     <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
       <div class="banner-text text-center fade-in-up">
@@ -284,7 +284,7 @@
 <figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs ts"><span class="hljs-comment">// index.ts</span><br><span class="hljs-keyword">const</span> result = <span class="hljs-title class_">MyLib</span>.<span class="hljs-title function_">getResult</span>()<br><br><span class="hljs-comment">// index.d.ts</span><br><span class="hljs-keyword">declare</span> <span class="hljs-keyword">namespace</span> <span class="hljs-title class_">MyLib</span> &#123;<br>  <span class="hljs-keyword">function</span> <span class="hljs-title function_">getResult</span>(<span class="hljs-params"></span>): <span class="hljs-built_in">string</span><br>&#125;<br></code></pre></td></tr></table></figure>
 
 <h3 id="module-定义类型模块"><a href="#module-定义类型模块" class="headerlink" title="module 定义类型模块"></a>module 定义类型模块</h3><p>在类似<code>@types/node</code> 这类很多的<code>@types/xx</code>npm类型包中的类型声明，使用<code>module</code>模式来全局定义的。</p>
-<p><code>@types</code> 包是由 <a href="https://github.com/DefinitelyTyped/DefinitelyTyped">DefinitelyTyped</a> 项目统一管理的</p>
+<p><code>@types</code> 包是由 <a target="_blank" rel="noopener" href="https://github.com/DefinitelyTyped/DefinitelyTyped">DefinitelyTyped</a> 项目统一管理的</p>
 <figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs ts"><span class="hljs-comment">// index.ts</span><br><span class="hljs-keyword">function</span> <span class="hljs-title function_">fnTest</span>(<span class="hljs-params">fn: moduleFn</span>) &#123;<br>  fn.<span class="hljs-title function_">getString</span>(<span class="hljs-string">&#x27;1&#x27;</span>)<br>&#125;<br><br><span class="hljs-comment">// index.d.ts</span><br><span class="hljs-keyword">declare</span> <span class="hljs-variable language_">module</span> <span class="hljs-string">&#x27;ts/test&#x27;</span> &#123;<br>  <span class="hljs-keyword">type</span> moduleFn = &#123;<br>    <span class="hljs-title function_">getString</span>(<span class="hljs-attr">str</span>: <span class="hljs-built_in">string</span>): <span class="hljs-built_in">string</span> <br>  &#125;<br>  <span class="hljs-keyword">type</span> moduleVariable = <span class="hljs-string">&#x27;variable&#x27;</span><br>&#125;<br></code></pre></td></tr></table></figure>
 <h3 id="全局变量和函数"><a href="#全局变量和函数" class="headerlink" title="全局变量和函数"></a>全局变量和函数</h3><p>通过 <code>declare</code> 声明变量和函数</p>
 <figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs ts"><span class="hljs-comment">// index.ts</span><br><span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-title function_">getFn</span>(<span class="hljs-string">&#x27;str&#x27;</span>))<br><span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(foo)<br><br><span class="hljs-comment">// index.d.ts</span><br><span class="hljs-keyword">declare</span> <span class="hljs-keyword">function</span> <span class="hljs-title function_">getFn</span>(<span class="hljs-params">str: <span class="hljs-built_in">string</span></span>): <span class="hljs-built_in">string</span><br><span class="hljs-keyword">declare</span> <span class="hljs-keyword">var</span> <span class="hljs-attr">foo</span>: <span class="hljs-built_in">string</span><br></code></pre></td></tr></table></figure>
@@ -326,7 +326,7 @@
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/avatar0813/avatar0813.github.io/tags/TypeScript/">#TypeScript</a>
+        <a href="/tags/TypeScript/">#TypeScript</a>
       
     </div>
   
@@ -339,7 +339,7 @@
   <div class="license-box my-3">
     <div class="license-title">
       <div>TS定义类型声明</div>
-      <div>https://github.com/avatar0813/avatar0813.github.io/2023/05/14/typescript/TS定义类型声明/</div>
+      <div>https://avatar0813.github.io/2023/05/14/typescript/TS定义类型声明/</div>
     </div>
     <div class="license-meta">
       
@@ -383,7 +383,7 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/avatar0813/avatar0813.github.io/2023/06/04/nest/%E5%AD%A6%E4%B9%A0Nest%E5%85%88%E7%90%86%E8%A7%A3%E7%9A%84%E6%A6%82%E5%BF%B5/" title="学习Nest先理解的概念">
+                      <a href="/2023/06/04/nest/%E5%AD%A6%E4%B9%A0Nest%E5%85%88%E7%90%86%E8%A7%A3%E7%9A%84%E6%A6%82%E5%BF%B5/" title="学习Nest先理解的概念">
                         <i class="iconfont icon-arrowleft"></i>
                         <span class="hidden-mobile">学习Nest先理解的概念</span>
                         <span class="visible-mobile">上一篇</span>
@@ -393,7 +393,7 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/avatar0813/avatar0813.github.io/2023/05/09/typescript/TS%E9%80%86%E5%8F%98%E5%8D%8F%E5%8F%98/" title="TS逆变协变">
+                      <a href="/2023/05/09/typescript/TS%E9%80%86%E5%8F%98%E5%8D%8F%E5%8F%98/" title="TS逆变协变">
                         <span class="hidden-mobile">TS逆变协变</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
@@ -523,8 +523,8 @@
 
 <script  src="https://lib.baomitu.com/jquery/3.6.0/jquery.min.js" ></script>
 <script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
-<script  src="/avatar0813/avatar0813.github.io/js/events.js" ></script>
-<script  src="/avatar0813/avatar0813.github.io/js/plugins.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
 
 
   <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
@@ -546,7 +546,7 @@
 
 
   
-    <script  src="/avatar0813/avatar0813.github.io/js/img-lazyload.js" ></script>
+    <script  src="/js/img-lazyload.js" ></script>
   
 
 
@@ -645,7 +645,7 @@
 
   <script>Fluid.plugins.imageCaption();</script>
 
-  <script  src="/avatar0813/avatar0813.github.io/js/local-search.js" ></script>
+  <script  src="/js/local-search.js" ></script>
 
 
 
@@ -653,7 +653,7 @@
 
 <!-- 主题的启动项，将它保持在最底部 -->
 <!-- the boot of the theme, keep it at the bottom -->
-<script  src="/avatar0813/avatar0813.github.io/js/boot.js" ></script>
+<script  src="/js/boot.js" ></script>
 
 
   

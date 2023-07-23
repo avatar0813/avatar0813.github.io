@@ -7,8 +7,8 @@
 
 <head>
   <meta charset="UTF-8">
-  <link rel="apple-touch-icon" sizes="76x76" href="/avatar0813/avatar0813.github.io/img/avatar.png">
-  <link rel="icon" href="/avatar0813/avatar0813.github.io/img/avatar.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/avatar.png">
+  <link rel="icon" href="/img/avatar.png">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   
@@ -19,17 +19,17 @@
     <meta name="description" content="typescript类型保护在react中props的应用 场景: 假如在react的父组件向子组件传递参数有两种类型，而两种参数类型有公共的也有不同的，如何不用可选参数去规范传递参数呢？  如： 现在parent.tsx组件中想要child.tsx子组件，传递男性、女性两种对象，他们有公共属性name,gender，不同的是他们有各自的私有属性：男性有salary，女性有weight。 可选参数">
 <meta property="og:type" content="article">
 <meta property="og:title" content="typescript类型保护在react中props的应用">
-<meta property="og:url" content="https://github.com/avatar0813/avatar0813.github.io/2023/07/22/typescript/typescript%E7%B1%BB%E5%9E%8B%E4%BF%9D%E6%8A%A4%E5%9C%A8react%E4%B8%ADprops%E7%9A%84%E5%BA%94%E7%94%A8/index.html">
+<meta property="og:url" content="https://avatar0813.github.io/2023/07/22/typescript/typescript%E7%B1%BB%E5%9E%8B%E4%BF%9D%E6%8A%A4%E5%9C%A8react%E4%B8%ADprops%E7%9A%84%E5%BA%94%E7%94%A8/index.html">
 <meta property="og:site_name" content="avatarのblog">
 <meta property="og:description" content="typescript类型保护在react中props的应用 场景: 假如在react的父组件向子组件传递参数有两种类型，而两种参数类型有公共的也有不同的，如何不用可选参数去规范传递参数呢？  如： 现在parent.tsx组件中想要child.tsx子组件，传递男性、女性两种对象，他们有公共属性name,gender，不同的是他们有各自的私有属性：男性有salary，女性有weight。 可选参数">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://github.com/avatar0813/avatar0813.github.io/img/TypeScript.png">
+<meta property="og:image" content="https://avatar0813.github.io/img/TypeScript.png">
 <meta property="article:published_time" content="2023-07-22T01:46:03.000Z">
-<meta property="article:modified_time" content="2023-07-23T01:32:19.696Z">
+<meta property="article:modified_time" content="2023-07-23T01:40:53.803Z">
 <meta property="article:author" content="avatar">
 <meta property="article:tag" content="TypeScript">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://github.com/avatar0813/avatar0813.github.io/img/TypeScript.png">
+<meta name="twitter:image" content="https://avatar0813.github.io/img/TypeScript.png">
   
   
   
@@ -57,12 +57,12 @@
 <link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
 
 
-<link  rel="stylesheet" href="/avatar0813/avatar0813.github.io/css/main.css" />
+<link  rel="stylesheet" href="/css/main.css" />
 
 
-  <link id="highlight-css" rel="stylesheet" href="/avatar0813/avatar0813.github.io/css/highlight.css" />
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
   
-    <link id="highlight-css-dark" rel="stylesheet" href="/avatar0813/avatar0813.github.io/css/highlight-dark.css" />
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
   
 
 
@@ -71,15 +71,15 @@
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
     Fluid.ctx = Object.assign({}, Fluid.ctx)
-    var CONFIG = {"hostname":"github.com","root":"/avatar0813/avatar0813.github.io/","version":"1.9.4","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/avatar0813/avatar0813.github.io/local-search.xml"};
+    var CONFIG = {"hostname":"avatar0813.github.io","root":"/","version":"1.9.4","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
 
     if (CONFIG.web_analytics.follow_dnt) {
       var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
       Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
     }
   </script>
-  <script  src="/avatar0813/avatar0813.github.io/js/utils.js" ></script>
-  <script  src="/avatar0813/avatar0813.github.io/js/color-schema.js" ></script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
   
 
 
@@ -96,7 +96,7 @@
 <div class="header-inner" style="height: 70vh;">
   <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
-    <a class="navbar-brand" href="/avatar0813/avatar0813.github.io/">
+    <a class="navbar-brand" href="/">
       <strong>avatarのblog</strong>
     </a>
 
@@ -115,7 +115,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/avatar0813/avatar0813.github.io/">
+              <a class="nav-link" href="/">
                 <i class="iconfont icon-home-fill"></i>
                 <span>首页</span>
               </a>
@@ -127,7 +127,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/avatar0813/avatar0813.github.io/archives/">
+              <a class="nav-link" href="/archives/">
                 <i class="iconfont icon-archive-fill"></i>
                 <span>归档</span>
               </a>
@@ -139,7 +139,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/avatar0813/avatar0813.github.io/categories/">
+              <a class="nav-link" href="/categories/">
                 <i class="iconfont icon-category-fill"></i>
                 <span>分类</span>
               </a>
@@ -151,7 +151,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/avatar0813/avatar0813.github.io/tags/">
+              <a class="nav-link" href="/tags/">
                 <i class="iconfont icon-tags-fill"></i>
                 <span>标签</span>
               </a>
@@ -163,7 +163,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/avatar0813/avatar0813.github.io/about/">
+              <a class="nav-link" href="/about/">
                 <i class="iconfont icon-user-fill"></i>
                 <span>关于</span>
               </a>
@@ -193,7 +193,7 @@
   
 
 <div id="banner" class="banner" parallax=true
-     style="background: url('/avatar0813/avatar0813.github.io/img/default.png') no-repeat center center; background-size: cover;">
+     style="background: url('/img/default.png') no-repeat center center; background-size: cover;">
   <div class="full-bg-img">
     <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
       <div class="banner-text text-center fade-in-up">
@@ -290,7 +290,7 @@
 
 <h3 id="结果与问题"><a href="#结果与问题" class="headerlink" title="结果与问题"></a>结果与问题</h3><p>能够达到正常的效果，但是又好像有点不太友好，因为我想要当<code>gender</code>为<code>male</code>时只能传<code>salary</code>，不能传<code>weight</code>,同样，为<code>female</code>时则只能传<code>weight</code>。</p>
 <p>目前可选参数并不能做到限制<code>parent</code>组件中传参和<code>child</code>渲染判断 <code>gender</code> 与 <code>salary</code> <code>weight</code>之间的关系。</p>
-<p><a target="_blank" rel="noopener" href="https://imgse.com/i/pCbvZGT"><img src="https://s1.ax1x.com/2023/07/22/pCbvZGT.png" srcset="/avatar0813/avatar0813.github.io/img/loading.gif" lazyload alt="pCbvZGT.png"></a></p>
+<p><a target="_blank" rel="noopener" href="https://imgse.com/i/pCbvZGT"><img src="https://s1.ax1x.com/2023/07/22/pCbvZGT.png" srcset="/img/loading.gif" lazyload alt="pCbvZGT.png"></a></p>
 <h2 id="使用union类型做类型保护"><a href="#使用union类型做类型保护" class="headerlink" title="使用union类型做类型保护"></a>使用union类型做类型保护</h2><h3 id="可以使用联合类型的方式来做类型保护"><a href="#可以使用联合类型的方式来做类型保护" class="headerlink" title="可以使用联合类型的方式来做类型保护"></a>可以使用联合类型的方式来做类型保护</h3><figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs ts"><span class="hljs-keyword">type</span> <span class="hljs-title class_">Props</span> = &#123;<br>  <span class="hljs-attr">name</span>: <span class="hljs-built_in">string</span><br>&#125; &amp; (maleProps | femaleProps)<br><br><span class="hljs-keyword">type</span> maleProps = &#123;<br>  <span class="hljs-attr">gender</span>: <span class="hljs-string">&#x27;male&#x27;</span><br>  <span class="hljs-attr">salary</span>: <span class="hljs-built_in">number</span><br>&#125;<br><br><span class="hljs-keyword">type</span> femaleProps = &#123;<br>  <span class="hljs-attr">gender</span>: <span class="hljs-string">&#x27;female&#x27;</span><br>  <span class="hljs-attr">weight</span>: <span class="hljs-built_in">number</span><br>&#125;<br></code></pre></td></tr></table></figure>
 
 <p>在联合类型<code>maleProps</code>、<code>femaleProps</code>中限制<code>gender</code>属性值和各自的私有属性.<br>这样当<code>props.gender</code>为<code>male</code>时，则命中<code>maleProps</code>，实际<code>props</code>就等同于:</p>
@@ -300,13 +300,13 @@
 <figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs ts"><span class="hljs-keyword">type</span> <span class="hljs-title class_">Props</span> = &#123;<br>  <span class="hljs-attr">name</span>: <span class="hljs-built_in">string</span><br>  <span class="hljs-attr">gender</span>: <span class="hljs-string">&#x27;female&#x27;</span><br>  <span class="hljs-attr">weight</span>: <span class="hljs-built_in">number</span><br>&#125;<br></code></pre></td></tr></table></figure>
 
 <h3 id="实现的效果"><a href="#实现的效果" class="headerlink" title="实现的效果"></a>实现的效果</h3><p>此时<code>child</code>中判断就能够根据前置条件判断属性了 <code>parent</code>也会根据之前传入的参数做限制了。</p>
-<p><a target="_blank" rel="noopener" href="https://imgse.com/i/pCbvWLj"><img src="https://s1.ax1x.com/2023/07/22/pCbvWLj.png" srcset="/avatar0813/avatar0813.github.io/img/loading.gif" lazyload alt="pCbvWLj.png"></a></p>
-<p><a target="_blank" rel="noopener" href="https://imgse.com/i/pCbxilD"><img src="https://s1.ax1x.com/2023/07/22/pCbxilD.png" srcset="/avatar0813/avatar0813.github.io/img/loading.gif" lazyload alt="pCbxilD.png"></a></p>
+<p><a target="_blank" rel="noopener" href="https://imgse.com/i/pCbvWLj"><img src="https://s1.ax1x.com/2023/07/22/pCbvWLj.png" srcset="/img/loading.gif" lazyload alt="pCbvWLj.png"></a></p>
+<p><a target="_blank" rel="noopener" href="https://imgse.com/i/pCbxilD"><img src="https://s1.ax1x.com/2023/07/22/pCbxilD.png" srcset="/img/loading.gif" lazyload alt="pCbxilD.png"></a></p>
 <h2 id="在response响应数据中的应用"><a href="#在response响应数据中的应用" class="headerlink" title="在response响应数据中的应用"></a>在response响应数据中的应用</h2><p>在请求数据的时候也可以根据响应的状态来限制响应体中只有数据或错误信息.</p>
 <figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs ts"><span class="hljs-comment">/* eslint-disable @typescript-eslint/no-unused-vars */</span><br><span class="hljs-keyword">type</span> <span class="hljs-title class_">ResponseData</span>&lt;T&gt; = <span class="hljs-title class_">SuccessRes</span>&lt;T&gt; | <span class="hljs-title class_">ErrorRes</span><br><br><span class="hljs-keyword">type</span> <span class="hljs-title class_">SuccessRes</span>&lt;T&gt; = &#123; <span class="hljs-attr">status</span>: <span class="hljs-string">&#x27;success&#x27;</span>, <span class="hljs-attr">data</span>: T, <span class="hljs-attr">timestamp</span>: <span class="hljs-title class_">Date</span> &#125;<br><span class="hljs-keyword">type</span> <span class="hljs-title class_">ErrorRes</span> = &#123; <span class="hljs-attr">status</span>: <span class="hljs-string">&#x27;error&#x27;</span>, <span class="hljs-attr">message</span>: <span class="hljs-built_in">string</span>, <span class="hljs-attr">timestamp</span>: <span class="hljs-title class_">Date</span> &#125;<br><br><span class="hljs-keyword">const</span> <span class="hljs-attr">res1</span>:<span class="hljs-title class_">ResponseData</span>&lt;<span class="hljs-built_in">number</span>&gt; = &#123;<br>  <span class="hljs-attr">status</span>: <span class="hljs-string">&#x27;success&#x27;</span>,<br>  <span class="hljs-attr">data</span>:<span class="hljs-number">100</span>,<br>  <span class="hljs-attr">timestamp</span>: <span class="hljs-keyword">new</span> <span class="hljs-title class_">Date</span>()<br>&#125;<br><span class="hljs-keyword">const</span> <span class="hljs-attr">res2</span>:<span class="hljs-title class_">ResponseData</span>&lt;<span class="hljs-built_in">number</span>&gt; = &#123;<br>  <span class="hljs-attr">status</span>: <span class="hljs-string">&#x27;error&#x27;</span>,<br>  <span class="hljs-attr">message</span>: <span class="hljs-string">&#x27;api error&#x27;</span>,<br>  <span class="hljs-attr">timestamp</span>: <span class="hljs-keyword">new</span> <span class="hljs-title class_">Date</span>()<br>&#125;<br></code></pre></td></tr></table></figure>
 
 <p>如果属性没有对应上<code>status</code>也会报错</p>
-<p><a target="_blank" rel="noopener" href="https://imgse.com/i/pCbxW9K"><img src="https://s1.ax1x.com/2023/07/22/pCbxW9K.png" srcset="/avatar0813/avatar0813.github.io/img/loading.gif" lazyload alt="pCbxW9K.png"></a></p>
+<p><a target="_blank" rel="noopener" href="https://imgse.com/i/pCbxW9K"><img src="https://s1.ax1x.com/2023/07/22/pCbxW9K.png" srcset="/img/loading.gif" lazyload alt="pCbxW9K.png"></a></p>
 <p>ps:</p>
 <p><a target="_blank" rel="noopener" href="https://stackblitz.com/edit/stackblitz-starters-hyceax?file=src/App.tsx">https://stackblitz.com/edit/stackblitz-starters-hyceax?file=src%2FApp.tsx</a></p>
 <p><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=9i38FPugxB8">https://www.youtube.com/watch?v=9i38FPugxB8</a></p>
@@ -322,7 +322,7 @@
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/avatar0813/avatar0813.github.io/tags/TypeScript/">#TypeScript</a>
+        <a href="/tags/TypeScript/">#TypeScript</a>
       
     </div>
   
@@ -335,7 +335,7 @@
   <div class="license-box my-3">
     <div class="license-title">
       <div>typescript类型保护在react中props的应用</div>
-      <div>https://github.com/avatar0813/avatar0813.github.io/2023/07/22/typescript/typescript类型保护在react中props的应用/</div>
+      <div>https://avatar0813.github.io/2023/07/22/typescript/typescript类型保护在react中props的应用/</div>
     </div>
     <div class="license-meta">
       
@@ -383,7 +383,7 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/avatar0813/avatar0813.github.io/2023/06/25/redis/redis%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/" title="redis的常用命令">
+                      <a href="/2023/06/25/redis/redis%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/" title="redis的常用命令">
                         <span class="hidden-mobile">redis的常用命令</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
@@ -513,8 +513,8 @@
 
 <script  src="https://lib.baomitu.com/jquery/3.6.0/jquery.min.js" ></script>
 <script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
-<script  src="/avatar0813/avatar0813.github.io/js/events.js" ></script>
-<script  src="/avatar0813/avatar0813.github.io/js/plugins.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
 
 
   <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
@@ -536,7 +536,7 @@
 
 
   
-    <script  src="/avatar0813/avatar0813.github.io/js/img-lazyload.js" ></script>
+    <script  src="/js/img-lazyload.js" ></script>
   
 
 
@@ -635,7 +635,7 @@
 
   <script>Fluid.plugins.imageCaption();</script>
 
-  <script  src="/avatar0813/avatar0813.github.io/js/local-search.js" ></script>
+  <script  src="/js/local-search.js" ></script>
 
 
 
@@ -643,7 +643,7 @@
 
 <!-- 主题的启动项，将它保持在最底部 -->
 <!-- the boot of the theme, keep it at the bottom -->
-<script  src="/avatar0813/avatar0813.github.io/js/boot.js" ></script>
+<script  src="/js/boot.js" ></script>
 
 
   
