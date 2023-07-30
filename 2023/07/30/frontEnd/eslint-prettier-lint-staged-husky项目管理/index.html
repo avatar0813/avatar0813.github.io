@@ -16,24 +16,24 @@
   <meta name="author" content="avatar">
   <meta name="keywords" content="">
   
-    <meta name="description" content="在TS类型体操运算中有时候涉及到number类型的操作比较麻烦即不能直接进行字符串操作以及加减乘除等数字运算   1、转成字符串 假如现在有个题目 trunc 要求实现跟Math.trunc() 函数一样的功能，即取出数字整数部分，TS类型体操中应该怎么处理呢？  了解将number类型转成string类型， 通过$&amp;#123;&amp;#125; 字符串模板转换  1234&#x2F;&#x2F; 将number类型转成">
+    <meta name="description" content="使用 eslint,prettier,lint-staged,husky 做项目管理添加eslint，prettier做代码校验下载依赖项pnpm install eslint prettier -D 初始化eslint运行命令：pnpm init @eslint&#x2F;configcli会提醒让你选择你的配置项,生成配置文件。  配置prettier123456module.exports &#x3D; &amp;#1">
 <meta property="og:type" content="article">
-<meta property="og:title" content="number 在类型体操中的运算">
-<meta property="og:url" content="https://avatar0813.github.io/2023/04/30/typescript/number%E5%9C%A8%E7%B1%BB%E5%9E%8B%E4%BD%93%E6%93%8D%E4%B8%AD%E7%9A%84%E8%BF%90%E7%AE%97/index.html">
+<meta property="og:title" content="eslint+prettier+lint-staged+husky项目管理">
+<meta property="og:url" content="https://avatar0813.github.io/2023/07/30/frontEnd/eslint-prettier-lint-staged-husky%E9%A1%B9%E7%9B%AE%E7%AE%A1%E7%90%86/index.html">
 <meta property="og:site_name" content="avatarのblog">
-<meta property="og:description" content="在TS类型体操运算中有时候涉及到number类型的操作比较麻烦即不能直接进行字符串操作以及加减乘除等数字运算   1、转成字符串 假如现在有个题目 trunc 要求实现跟Math.trunc() 函数一样的功能，即取出数字整数部分，TS类型体操中应该怎么处理呢？  了解将number类型转成string类型， 通过$&amp;#123;&amp;#125; 字符串模板转换  1234&#x2F;&#x2F; 将number类型转成">
+<meta property="og:description" content="使用 eslint,prettier,lint-staged,husky 做项目管理添加eslint，prettier做代码校验下载依赖项pnpm install eslint prettier -D 初始化eslint运行命令：pnpm init @eslint&#x2F;configcli会提醒让你选择你的配置项,生成配置文件。  配置prettier123456module.exports &#x3D; &amp;#1">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://avatar0813.github.io/img/TypeScript.png">
-<meta property="article:published_time" content="2023-04-30T11:53:00.000Z">
-<meta property="article:modified_time" content="2023-07-30T12:52:23.292Z">
+<meta property="og:image" content="https://avatar0813.github.io/img/projectManage.jpg">
+<meta property="article:published_time" content="2023-07-30T11:31:41.000Z">
+<meta property="article:modified_time" content="2023-07-30T12:52:23.288Z">
 <meta property="article:author" content="avatar">
-<meta property="article:tag" content="TypeScript">
+<meta property="article:tag" content="project">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://avatar0813.github.io/img/TypeScript.png">
+<meta name="twitter:image" content="https://avatar0813.github.io/img/projectManage.jpg">
   
   
   
-  <title>number 在类型体操中的运算 - avatarのblog</title>
+  <title>eslint+prettier+lint-staged+husky项目管理 - avatarのblog</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -199,7 +199,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="number 在类型体操中的运算"></span>
+            <span id="subtitle" data-typed-text="eslint+prettier+lint-staged+husky项目管理"></span>
           
         </div>
 
@@ -210,8 +210,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2023-04-30 19:53" pubdate>
-          2023年4月30日 晚上
+        <time datetime="2023-07-30 19:31" pubdate>
+          2023年7月30日 晚上
         </time>
       </span>
     
@@ -222,7 +222,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          1.8k 字
+          1.6k 字
         
       </span>
     
@@ -233,7 +233,7 @@
         
         
         
-          15 分钟
+          13 分钟
         
       </span>
     
@@ -271,30 +271,40 @@
         <div id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">number 在类型体操中的运算</h1>
+            <h1 style="display: none">eslint+prettier+lint-staged+husky项目管理</h1>
             
             
               <div class="markdown-body">
                 
-                <blockquote>
-<p>在TS类型体操运算中有时候涉及到number类型的操作比较麻烦<br>即不能直接进行字符串操作以及加减乘除等数字运算</p>
-</blockquote>
-<hr>
-<h3 id="1、转成字符串"><a href="#1、转成字符串" class="headerlink" title="1、转成字符串"></a>1、转成字符串</h3><hr>
-<p>假如现在有个题目 <a target="_blank" rel="noopener" href="https://github.com/type-challenges/type-challenges/tree/main/questions/05140-medium-trunc">trunc</a> 要求实现跟Math.trunc() 函数一样的功能，即取出数字整数部分，TS类型体操中应该怎么处理呢？</p>
-<ul>
-<li>了解将number类型转成string类型， 通过<code>$&#123;&#125;</code> 字符串模板转换</li>
-</ul>
-<figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs ts"><span class="hljs-comment">// 将number类型转成string</span><br><span class="hljs-keyword">type</span> <span class="hljs-title class_">NumberToString</span>&lt;T <span class="hljs-keyword">extends</span> <span class="hljs-built_in">number</span>&gt; = <span class="hljs-string">`<span class="hljs-subst">$&#123;T&#125;</span>`</span><br><br><span class="hljs-keyword">type</span> test = <span class="hljs-title class_">NumberToString</span>&lt;<span class="hljs-number">123</span>&gt; <span class="hljs-comment">// &quot;123&quot;</span><br></code></pre></td></tr></table></figure>
+                <h1 id="使用-eslint-prettier-lint-staged-husky-做项目管理"><a href="#使用-eslint-prettier-lint-staged-husky-做项目管理" class="headerlink" title="使用 eslint,prettier,lint-staged,husky 做项目管理"></a>使用 <code>eslint</code>,<code>prettier</code>,<code>lint-staged</code>,<code>husky</code> 做项目管理</h1><h2 id="添加eslint，prettier做代码校验"><a href="#添加eslint，prettier做代码校验" class="headerlink" title="添加eslint，prettier做代码校验"></a>添加<code>eslint</code>，<code>prettier</code>做代码校验</h2><h3 id="下载依赖项"><a href="#下载依赖项" class="headerlink" title="下载依赖项"></a>下载依赖项</h3><p><code>pnpm install eslint prettier -D</code></p>
+<h3 id="初始化eslint"><a href="#初始化eslint" class="headerlink" title="初始化eslint"></a>初始化<code>eslint</code></h3><p>运行命令：<code>pnpm init @eslint/config</code><br>cli会提醒让你选择你的配置项,生成配置文件。</p>
+<p><a target="_blank" rel="noopener" href="https://imgse.com/i/pPpRAl4"><img src="https://s1.ax1x.com/2023/07/30/pPpRAl4.png" srcset="/img/loading.gif" lazyload alt="pPpRAl4.png"></a></p>
+<h3 id="配置prettier"><a href="#配置prettier" class="headerlink" title="配置prettier"></a>配置<code>prettier</code></h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-variable language_">module</span>.<span class="hljs-property">exports</span> = &#123;<br>  <span class="hljs-attr">printWidth</span>: <span class="hljs-number">80</span>,<br>  <span class="hljs-attr">tabWidth</span>: <span class="hljs-number">2</span>,<br>  <span class="hljs-attr">semi</span>: <span class="hljs-literal">false</span>,<br>  <span class="hljs-attr">singleQuote</span>: <span class="hljs-literal">true</span>,<br>&#125;;<br></code></pre></td></tr></table></figure>
 
-<ul>
-<li>通过TS推算<code>infer</code> 就可以进行拆分提取了<figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><code class="hljs ts"><span class="hljs-comment">// 类型函数Rrunc</span><br><span class="hljs-keyword">type</span> <span class="hljs-title class_">Trunc</span>&lt;T <span class="hljs-keyword">extends</span> <span class="hljs-built_in">string</span> | <span class="hljs-built_in">number</span>&gt; = <br><span class="hljs-string">`<span class="hljs-subst">$&#123;T&#125;</span>`</span> <span class="hljs-keyword">extends</span> <span class="hljs-string">`<span class="hljs-subst">$&#123;infer L&#125;</span>.<span class="hljs-subst">$&#123;infer Rest&#125;</span>`</span> <br>? L <span class="hljs-keyword">extends</span> <span class="hljs-string">&#x27;&#x27;</span> <br>  ? <span class="hljs-string">&#x27;0&#x27;</span><br>  : L<br>: <span class="hljs-string">`<span class="hljs-subst">$&#123;T&#125;</span>`</span><br><br><span class="hljs-comment">// 测试用例</span><br><span class="hljs-keyword">import</span> <span class="hljs-keyword">type</span> &#123; <span class="hljs-title class_">Equal</span>, <span class="hljs-title class_">Expect</span> &#125; <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;@type-challenges/utils&#x27;</span><br><br><span class="hljs-keyword">type</span> cases = [<br>  <span class="hljs-title class_">Expect</span>&lt;<span class="hljs-title class_">Equal</span>&lt;<span class="hljs-title class_">Trunc</span>&lt;<span class="hljs-number">0.1</span>&gt;, <span class="hljs-string">&#x27;0&#x27;</span>&gt;&gt;,<br>  <span class="hljs-title class_">Expect</span>&lt;<span class="hljs-title class_">Equal</span>&lt;<span class="hljs-title class_">Trunc</span>&lt;<span class="hljs-number">0.2</span>&gt;, <span class="hljs-string">&#x27;0&#x27;</span>&gt;&gt;,<br>  <span class="hljs-title class_">Expect</span>&lt;<span class="hljs-title class_">Equal</span>&lt;<span class="hljs-title class_">Trunc</span>&lt;<span class="hljs-number">1.234</span>&gt;, <span class="hljs-string">&#x27;1&#x27;</span>&gt;&gt;,<br>  <span class="hljs-title class_">Expect</span>&lt;<span class="hljs-title class_">Equal</span>&lt;<span class="hljs-title class_">Trunc</span>&lt;<span class="hljs-number">12.345</span>&gt;, <span class="hljs-string">&#x27;12&#x27;</span>&gt;&gt;,<br>  <span class="hljs-title class_">Expect</span>&lt;<span class="hljs-title class_">Equal</span>&lt;<span class="hljs-title class_">Trunc</span>&lt;-<span class="hljs-number">5.1</span>&gt;, <span class="hljs-string">&#x27;-5&#x27;</span>&gt;&gt;,<br>  <span class="hljs-title class_">Expect</span>&lt;<span class="hljs-title class_">Equal</span>&lt;<span class="hljs-title class_">Trunc</span>&lt;<span class="hljs-string">&#x27;.3&#x27;</span>&gt;, <span class="hljs-string">&#x27;0&#x27;</span>&gt;&gt;,<br>  <span class="hljs-title class_">Expect</span>&lt;<span class="hljs-title class_">Equal</span>&lt;<span class="hljs-title class_">Trunc</span>&lt;<span class="hljs-string">&#x27;1.234&#x27;</span>&gt;, <span class="hljs-string">&#x27;1&#x27;</span>&gt;&gt;,<br>  <span class="hljs-title class_">Expect</span>&lt;<span class="hljs-title class_">Equal</span>&lt;<span class="hljs-title class_">Trunc</span>&lt;<span class="hljs-string">&#x27;-10.234&#x27;</span>&gt;, <span class="hljs-string">&#x27;-10&#x27;</span>&gt;&gt;,<br>  <span class="hljs-title class_">Expect</span>&lt;<span class="hljs-title class_">Equal</span>&lt;<span class="hljs-title class_">Trunc</span>&lt;<span class="hljs-number">10</span>&gt;, <span class="hljs-string">&#x27;10&#x27;</span>&gt;&gt;,<br>]<br></code></pre></td></tr></table></figure></li>
-</ul>
-<h3 id="2、加法运算"><a href="#2、加法运算" class="headerlink" title="2、加法运算"></a>2、加法运算</h3><figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs ts"><span class="hljs-keyword">type</span> <span class="hljs-title class_">BuildArray</span>&lt;<span class="hljs-title class_">Length</span> <span class="hljs-keyword">extends</span> <span class="hljs-built_in">number</span>, <span class="hljs-title class_">Ele</span>  = <span class="hljs-built_in">unknown</span>, <span class="hljs-title class_">Arr</span> <span class="hljs-keyword">extends</span> <span class="hljs-built_in">unknown</span>[] = []&gt; =<br>    <span class="hljs-title class_">Arr</span>[<span class="hljs-string">&#x27;length&#x27;</span>] <span class="hljs-keyword">extends</span> <span class="hljs-title class_">Length</span><br>        ? <span class="hljs-title class_">Arr</span><br>        : <span class="hljs-title class_">BuildArray</span>&lt;<span class="hljs-title class_">Length</span>, <span class="hljs-title class_">Ele</span>, [...<span class="hljs-title class_">Arr</span>, <span class="hljs-title class_">Ele</span>]&gt;<br><br><span class="hljs-keyword">type</span> <span class="hljs-title class_">Add</span>&lt;<span class="hljs-title class_">Num1</span> <span class="hljs-keyword">extends</span> <span class="hljs-built_in">number</span>, <span class="hljs-title class_">Num2</span> <span class="hljs-keyword">extends</span> <span class="hljs-built_in">number</span>&gt; = <br>    [...<span class="hljs-title class_">BuildArray</span>&lt;<span class="hljs-title class_">Num1</span>&gt;, ...<span class="hljs-title class_">BuildArray</span>&lt;<span class="hljs-title class_">Num2</span>&gt;][<span class="hljs-string">&#x27;length&#x27;</span>]<br><br><span class="hljs-keyword">type</span> <span class="hljs-title class_">Add2</span>&lt;<span class="hljs-title class_">Num1</span> <span class="hljs-keyword">extends</span> <span class="hljs-number">1000</span>, <span class="hljs-title class_">Num2</span> <span class="hljs-keyword">extends</span> <span class="hljs-number">1</span>&gt; = <br>    [...<span class="hljs-title class_">BuildArray</span>&lt;<span class="hljs-title class_">Num1</span>&gt;, ...<span class="hljs-title class_">BuildArray</span>&lt;<span class="hljs-title class_">Num2</span>&gt;][<span class="hljs-string">&#x27;length&#x27;</span>]<br><br><span class="hljs-keyword">type</span> <span class="hljs-title class_">AddResult1</span> = <span class="hljs-title class_">Add</span>&lt;<span class="hljs-number">999</span>, <span class="hljs-number">1</span>&gt; <span class="hljs-comment">// 1000</span><br><span class="hljs-keyword">type</span> <span class="hljs-title class_">AddResult2</span> = <span class="hljs-title class_">Add</span>&lt;<span class="hljs-number">1000</span>, <span class="hljs-number">1</span>&gt; <span class="hljs-comment">// Type instantiation is excessively deep and possibly infinite: 类型深度可能是无限的 </span><br></code></pre></td></tr></table></figure>
+<h3 id="设置忽略文件-eslintignore-cjs-prettierrc-cjs"><a href="#设置忽略文件-eslintignore-cjs-prettierrc-cjs" class="headerlink" title="设置忽略文件.eslintignore.cjs, .prettierrc.cjs"></a>设置忽略文件<code>.eslintignore.cjs</code>, <code>.prettierrc.cjs</code></h3><h3 id="为了更好的结合eslint-与-prettier-还需添加-eslint-config-prettier-eslint-plugin-prettier"><a href="#为了更好的结合eslint-与-prettier-还需添加-eslint-config-prettier-eslint-plugin-prettier" class="headerlink" title="为了更好的结合eslint 与 prettier 还需添加 eslint-config-prettier, eslint-plugin-prettier"></a>为了更好的结合<code>eslint</code> 与 <code>prettier</code> 还需添加 <code>eslint-config-prettier</code>, <code>eslint-plugin-prettier</code></h3><p><code>eslint-config-prettier</code>的作用是为了关闭<code>eslint</code>中不必要或可能与 <code>Prettier</code> 冲突的规则。<br>需要在<code>eslint</code>配置文件中添加</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-variable language_">module</span>.<span class="hljs-property">exports</span> = &#123;<br>  ...<br>  <span class="hljs-attr">extends</span>: [...ohterExtends,<span class="hljs-string">&#x27;prettier&#x27;</span>],<br>&#125;<br></code></pre></td></tr></table></figure>
 
-<blockquote>
-<p>ts在递归超过1000次的时候会报 深度可能是无限的错误</p>
-</blockquote>
+<p><code>eslint-plugin-config</code>的作用则是为了将<code>prettier</code>的校验转化为<code>eslint</code>的规则，从而做到编辑器的错误提示.</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-variable language_">module</span>.<span class="hljs-property">exports</span> = &#123;<br>  ...<br>  <span class="hljs-attr">plugin</span>: [...otherPlugins,<span class="hljs-string">&#x27;prettier&#x27;</span>],<br>  <span class="hljs-attr">rules</span>: &#123;<br>    <span class="hljs-string">&#x27;prettier/prettier&#x27;</span>: <span class="hljs-string">&#x27;error&#x27;</span><br>  &#125;<br>&#125;<br><br></code></pre></td></tr></table></figure>
+
+<h2 id="添加husky-lint-staged-规范commits"><a href="#添加husky-lint-staged-规范commits" class="headerlink" title="添加husky,lint-staged, 规范commits"></a>添加<code>husky</code>,<code>lint-staged</code>, 规范<code>commits</code></h2><p><code>husky</code>的作用是调用<code>git hook</code>做提交校验<br><code>lint-staged</code>的作用是只校验<code>git add .</code>的内容</p>
+<h3 id="下载lint-staged"><a href="#下载lint-staged" class="headerlink" title="下载lint-staged"></a>下载<code>lint-staged</code></h3><p><code>pnpm install -D lint-staged</code></p>
+<h3 id="配置信息"><a href="#配置信息" class="headerlink" title="配置信息"></a>配置信息</h3><figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs json"><span class="hljs-comment">// package.json</span><br><span class="hljs-attr">&quot;lint-staged&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">&#123;</span><br>    <span class="hljs-attr">&quot;src/**/*.&#123;js,jsx,ts,tsx,vue&#125;&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;eslint&quot;</span><br><span class="hljs-punctuation">&#125;</span><br></code></pre></td></tr></table></figure>
+
+<h3 id="下载husky"><a href="#下载husky" class="headerlink" title="下载husky"></a>下载<code>husky</code></h3><p><code>pnpm install -D husky</code></p>
+<h3 id="添加git-hook"><a href="#添加git-hook" class="headerlink" title="添加git hook"></a>添加<code>git hook</code></h3><p><strong>⚠️注意</strong> 添加<code>hook</code>时需要有<code>.git</code>文件夹，如果是初始化的项目需先<code>git init</code>, 然后再运行<code>npx husky install</code> 创建<code>.husky</code>目录结构</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-attr">cmd</span>: npx husky install<br><span class="hljs-attr">fatal</span>: not a git repository (or any <span class="hljs-keyword">of</span> the parent directories): .<span class="hljs-property">git</span><br>husky - git command not found, skipping install<br></code></pre></td></tr></table></figure>
+
+<p>运行命令</p>
+<p><code>npx husky add .husky/pre-commit &quot;npx --no-install lint-staged&quot;</code></p>
+<p>其中<code>&quot;npx --no-install lint-staged&quot;</code> 表示调用<code>lint-staged</code></p>
+<p>此时项目中 <code>husky</code> 配置完毕</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment">##  。husky/precommit</span><br>. <span class="hljs-string">&quot;<span class="hljs-subst">$(dirname -- <span class="hljs-string">&quot;<span class="hljs-variable">$0</span>&quot;</span>)</span>/_/husky.sh&quot;</span><br><br>npx --no-install lint-staged<br><br></code></pre></td></tr></table></figure>
+
+<h3 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h3><p><a target="_blank" rel="noopener" href="https://imgse.com/i/pPp2OSg"><img src="https://s1.ax1x.com/2023/07/30/pPp2OSg.png" srcset="/img/loading.gif" lazyload alt="pPp2OSg.png"></a></p>
+<p><a target="_blank" rel="noopener" href="https://imgse.com/i/pPp2bY8"><img src="https://s1.ax1x.com/2023/07/30/pPp2bY8.png" srcset="/img/loading.gif" lazyload alt="pPp2bY8.png"></a></p>
+<p><strong>拦截提交表示成功</strong></p>
+<h2 id="对于使用prettier不同人也有不同的声音"><a href="#对于使用prettier不同人也有不同的声音" class="headerlink" title="对于使用prettier不同人也有不同的声音"></a>对于使用<code>prettier</code>不同人也有不同的声音</h2><p>大佬<code>Anthony Fu</code> 在他的个人<a target="_blank" rel="noopener" href="https://github.com/antfu/eslint-config">eslint-config</a>中就抛弃使用<code>prettier</code>.<br>以及有相关文章介绍他个人为什么不愿意再使用<code>prettier</code><a target="_blank" rel="noopener" href="https://antfu.me/posts/why-not-prettier-zh">为什么我不使用 Prettier</a></p>
 
                 
               </div>
@@ -328,7 +338,7 @@
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/tags/TypeScript/">#TypeScript</a>
+        <a href="/tags/project/">#project</a>
       
     </div>
   
@@ -340,8 +350,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>number 在类型体操中的运算</div>
-      <div>https://avatar0813.github.io/2023/04/30/typescript/number在类型体操中的运算/</div>
+      <div>eslint+prettier+lint-staged+husky项目管理</div>
+      <div>https://avatar0813.github.io/2023/07/30/frontEnd/eslint-prettier-lint-staged-husky项目管理/</div>
     </div>
     <div class="license-meta">
       
@@ -353,7 +363,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2023年4月30日</div>
+          <div>2023年7月30日</div>
         </div>
       
       
@@ -385,15 +395,15 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2023/04/30/typescript/TS%E7%B1%BB%E5%9E%8B%E4%BD%93%E6%93%8D%E4%B8%AD%E6%89%BE%E5%88%B0%E6%95%B0%E7%BB%84%E6%88%90%E5%91%98%E7%B4%A2%E5%BC%95/" title="TS类型体操中找到数组成员索引">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">TS类型体操中找到数组成员索引</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
+                    
+                      <a href="/2023/07/22/typescript/typescript%E7%B1%BB%E5%9E%8B%E4%BF%9D%E6%8A%A4%E5%9C%A8react%E4%B8%ADprops%E7%9A%84%E5%BA%94%E7%94%A8/" title="typescript类型保护在react中props的应用">
+                        <span class="hidden-mobile">typescript类型保护在react中props的应用</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
                     
                   </article>
                 </div>
