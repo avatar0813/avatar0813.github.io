@@ -16,29 +16,24 @@
   <meta name="author" content="avatar">
   <meta name="keywords" content="">
   
-    <meta name="description" content="从一次下载失败理解npm、yarn install策略工具版本 nodejs: v14.21.2 npm: 6.14.17 yarn: 1.22.19  问题现象在一次删除lock文件重新下载依赖时，原本能够正常下载的依赖，现在却报错：node版本太低，导致下载依赖失败。特记录此次问题出现的原因。 假设现在项目有两个依赖 marked, simplemde 1234&quot;dependenci">
+    <meta name="description" content="从一次依赖下载失败理解npm、yarn install策略工具版本 nodejs: v14.21.2 npm: 6.14.17 yarn: 1.22.19  问题现象在一次删除lock文件重新下载依赖时，原本能够正常下载的依赖，现在却报错：node版本太低，导致下载依赖失败。特记录此次问题出现的原因。 假设现在项目有两个依赖 marked, simplemde 1234&quot;dependen">
 <meta property="og:type" content="article">
-<meta property="og:title" content="avatarのblog">
+<meta property="og:title" content="从一次依赖下载失败理解npm、yarn install策略">
 <meta property="og:url" content="https://avatar0813.github.io/2023/08/03/frontEnd/%E4%BB%8E%E4%B8%80%E6%AC%A1%E4%BE%9D%E8%B5%96%E4%B8%8B%E8%BD%BD%E5%A4%B1%E8%B4%A5%E7%90%86%E8%A7%A3npm%E3%80%81yarn%20install%E7%AD%96%E7%95%A5/index.html">
 <meta property="og:site_name" content="avatarのblog">
-<meta property="og:description" content="从一次下载失败理解npm、yarn install策略工具版本 nodejs: v14.21.2 npm: 6.14.17 yarn: 1.22.19  问题现象在一次删除lock文件重新下载依赖时，原本能够正常下载的依赖，现在却报错：node版本太低，导致下载依赖失败。特记录此次问题出现的原因。 假设现在项目有两个依赖 marked, simplemde 1234&quot;dependenci">
+<meta property="og:description" content="从一次依赖下载失败理解npm、yarn install策略工具版本 nodejs: v14.21.2 npm: 6.14.17 yarn: 1.22.19  问题现象在一次删除lock文件重新下载依赖时，原本能够正常下载的依赖，现在却报错：node版本太低，导致下载依赖失败。特记录此次问题出现的原因。 假设现在项目有两个依赖 marked, simplemde 1234&quot;dependen">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://s1.ax1x.com/2023/08/03/pPiXFjH.png">
-<meta property="og:image" content="https://s1.ax1x.com/2023/08/03/pPiXAud.png">
-<meta property="og:image" content="https://s1.ax1x.com/2023/08/03/pPiOQmR.png">
-<meta property="og:image" content="https://s1.ax1x.com/2023/08/03/pPiOKX9.png">
-<meta property="og:image" content="https://s1.ax1x.com/2023/08/03/pPiOu6J.md.png">
-<meta property="og:image" content="https://s1.ax1x.com/2023/08/03/pPiOnl4.png">
-<meta property="og:image" content="https://s1.ax1x.com/2023/08/03/pPixWGV.md.png">
-<meta property="article:published_time" content="2023-08-03T15:59:45.885Z">
-<meta property="article:modified_time" content="2023-08-03T15:59:45.885Z">
+<meta property="og:image" content="https://avatar0813.github.io/img/projectManage.jpg">
+<meta property="article:published_time" content="2023-08-03T15:58:41.000Z">
+<meta property="article:modified_time" content="2023-08-03T16:02:14.312Z">
 <meta property="article:author" content="avatar">
+<meta property="article:tag" content="project">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://s1.ax1x.com/2023/08/03/pPiXFjH.png">
+<meta name="twitter:image" content="https://avatar0813.github.io/img/projectManage.jpg">
   
   
   
-  <title>avatarのblog</title>
+  <title>从一次依赖下载失败理解npm、yarn install策略 - avatarのblog</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -204,7 +199,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text=""></span>
+            <span id="subtitle" data-typed-text="从一次依赖下载失败理解npm、yarn install策略"></span>
           
         </div>
 
@@ -215,7 +210,7 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2023-08-03 23:59" pubdate>
+        <time datetime="2023-08-03 23:58" pubdate>
           2023年8月3日 晚上
         </time>
       </span>
@@ -276,12 +271,12 @@
         <div id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none"></h1>
+            <h1 style="display: none">从一次依赖下载失败理解npm、yarn install策略</h1>
             
             
               <div class="markdown-body">
                 
-                <h1 id="从一次下载失败理解npm、yarn-install策略"><a href="#从一次下载失败理解npm、yarn-install策略" class="headerlink" title="从一次下载失败理解npm、yarn install策略"></a>从一次下载失败理解npm、yarn install策略</h1><h2 id="工具版本"><a href="#工具版本" class="headerlink" title="工具版本"></a>工具版本</h2><ul>
+                <h1 id="从一次依赖下载失败理解npm、yarn-install策略"><a href="#从一次依赖下载失败理解npm、yarn-install策略" class="headerlink" title="从一次依赖下载失败理解npm、yarn install策略"></a>从一次依赖下载失败理解npm、yarn install策略</h1><h2 id="工具版本"><a href="#工具版本" class="headerlink" title="工具版本"></a>工具版本</h2><ul>
 <li><code>nodejs</code>: v14.21.2</li>
 <li><code>npm</code>: 6.14.17</li>
 <li><code>yarn</code>: 1.22.19</li>
@@ -361,6 +356,34 @@
             <div>
               <div class="post-metas my-3">
   
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E5%AD%A6%E4%B9%A0/" class="category-chain-item">学习</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/project/">#project</a>
+      
+    </div>
   
 </div>
 
@@ -370,7 +393,7 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div></div>
+      <div>从一次依赖下载失败理解npm、yarn install策略</div>
       <div>https://avatar0813.github.io/2023/08/03/frontEnd/从一次依赖下载失败理解npm、yarn install策略/</div>
     </div>
     <div class="license-meta">
