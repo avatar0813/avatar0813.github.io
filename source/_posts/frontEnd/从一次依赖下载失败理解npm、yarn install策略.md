@@ -1,4 +1,12 @@
-# 从一次下载失败理解npm、yarn install策略
+---
+title: 从一次依赖下载失败理解npm、yarn install策略
+date: 2023-08-03 23:58:41
+tags: [project]
+index_img: /img/projectManage.jpg
+categories: [学习]
+---
+
+# 从一次依赖下载失败理解npm、yarn install策略
 
 ## 工具版本
 
