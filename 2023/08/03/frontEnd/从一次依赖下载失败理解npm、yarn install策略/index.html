@@ -1,0 +1,691 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/avatar.png">
+  <link rel="icon" href="/img/avatar.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="avatar">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="从一次下载失败理解npm、yarn install策略工具版本 nodejs: v14.21.2 npm: 6.14.17 yarn: 1.22.19  问题现象在一次删除lock文件重新下载依赖时，原本能够正常下载的依赖，现在却报错：node版本太低，导致下载依赖失败。特记录此次问题出现的原因。 假设现在项目有两个依赖 marked, simplemde 1234&quot;dependenci">
+<meta property="og:type" content="article">
+<meta property="og:title" content="avatarのblog">
+<meta property="og:url" content="https://avatar0813.github.io/2023/08/03/frontEnd/%E4%BB%8E%E4%B8%80%E6%AC%A1%E4%BE%9D%E8%B5%96%E4%B8%8B%E8%BD%BD%E5%A4%B1%E8%B4%A5%E7%90%86%E8%A7%A3npm%E3%80%81yarn%20install%E7%AD%96%E7%95%A5/index.html">
+<meta property="og:site_name" content="avatarのblog">
+<meta property="og:description" content="从一次下载失败理解npm、yarn install策略工具版本 nodejs: v14.21.2 npm: 6.14.17 yarn: 1.22.19  问题现象在一次删除lock文件重新下载依赖时，原本能够正常下载的依赖，现在却报错：node版本太低，导致下载依赖失败。特记录此次问题出现的原因。 假设现在项目有两个依赖 marked, simplemde 1234&quot;dependenci">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://s1.ax1x.com/2023/08/03/pPiXFjH.png">
+<meta property="og:image" content="https://s1.ax1x.com/2023/08/03/pPiXAud.png">
+<meta property="og:image" content="https://s1.ax1x.com/2023/08/03/pPiOQmR.png">
+<meta property="og:image" content="https://s1.ax1x.com/2023/08/03/pPiOKX9.png">
+<meta property="og:image" content="https://s1.ax1x.com/2023/08/03/pPiOu6J.md.png">
+<meta property="og:image" content="https://s1.ax1x.com/2023/08/03/pPiOnl4.png">
+<meta property="og:image" content="https://s1.ax1x.com/2023/08/03/pPixWGV.md.png">
+<meta property="article:published_time" content="2023-08-03T15:59:45.885Z">
+<meta property="article:modified_time" content="2023-08-03T15:59:45.885Z">
+<meta property="article:author" content="avatar">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://s1.ax1x.com/2023/08/03/pPiXFjH.png">
+  
+  
+  
+  <title>avatarのblog</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"avatar0813.github.io","root":"/","version":"1.9.4","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+
+  
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>avatarのblog</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/default.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text=""></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2023-08-03 23:59" pubdate>
+          2023年8月3日 晚上
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          2.4k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          20 分钟
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none"></h1>
+            
+            
+              <div class="markdown-body">
+                
+                <h1 id="从一次下载失败理解npm、yarn-install策略"><a href="#从一次下载失败理解npm、yarn-install策略" class="headerlink" title="从一次下载失败理解npm、yarn install策略"></a>从一次下载失败理解npm、yarn install策略</h1><h2 id="工具版本"><a href="#工具版本" class="headerlink" title="工具版本"></a>工具版本</h2><ul>
+<li><code>nodejs</code>: v14.21.2</li>
+<li><code>npm</code>: 6.14.17</li>
+<li><code>yarn</code>: 1.22.19</li>
+</ul>
+<h2 id="问题现象"><a href="#问题现象" class="headerlink" title="问题现象"></a>问题现象</h2><p>在一次删除<code>lock</code>文件重新下载依赖时，原本能够正常下载的依赖，现在却报错：<strong>node版本太低</strong>，导致下载依赖失败。特记录此次问题出现的原因。</p>
+<p>假设现在项目有两个依赖 <code>marked</code>, <code>simplemde</code></p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs json"><span class="hljs-attr">&quot;dependencies&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">&#123;</span><br>    <span class="hljs-attr">&quot;marked&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;^0.3.19&quot;</span><span class="hljs-punctuation">,</span><br>    <span class="hljs-attr">&quot;simplemde&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;^1.11.2&quot;</span><br><span class="hljs-punctuation">&#125;</span><br></code></pre></td></tr></table></figure>
+
+<p>而<code>simplemde</code> 内部又依赖了<code>marked</code></p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs json"><span class="hljs-attr">&quot;dependencies&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">&#123;</span><br>  ...<br>  <span class="hljs-attr">&quot;marked&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;*&quot;</span><br><span class="hljs-punctuation">&#125;</span><span class="hljs-punctuation">,</span><br></code></pre></td></tr></table></figure>
+
+<p>发现<code>marked</code>有两个依赖版本<code>marked@*</code>, <code>marked@^0.3.19</code>, 也可以说项目添加<code>marked</code>依赖的目的就是为了控制<code>simplemde</code>中的依赖<code>marked</code>的版本。然而<code>yarn</code>在下载依赖的时候，将依赖中的子依赖也平铺开了下载。</p>
+<p>此时：<code>marked@*</code> 指定的依赖版本是 <code>5.0.4</code> 而 自2023-05-02发布的<code>marked@5.0.0</code>开始， 对<code>node</code>的版本要求直接从 12 升至 18，导致<code>engines.node</code>版本校验不通过，下载报错。</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs json"><span class="hljs-comment">// marked/v5.0.0/package.json</span><br><span class="hljs-punctuation">&#123;</span><br>  ...<br>  <span class="hljs-attr">&quot;engines&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">&#123;</span><br>    <span class="hljs-attr">&quot;node&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;&gt;= 18&quot;</span><br>  <span class="hljs-punctuation">&#125;</span><br><span class="hljs-punctuation">&#125;</span><br></code></pre></td></tr></table></figure>
+
+<h3 id="对比-npm-和-yarn-下载依赖"><a href="#对比-npm-和-yarn-下载依赖" class="headerlink" title="对比 npm 和 yarn 下载依赖"></a>对比 <code>npm</code> 和 <code>yarn</code> 下载依赖</h3><blockquote>
+<p>通过<code>npm install</code>下载依赖 (npm version: 6.14.17)</p>
+</blockquote>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs json">...<br><span class="hljs-comment">// package-lock.json</span><br><span class="hljs-attr">&quot;marked&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">&#123;</span><br>    <span class="hljs-attr">&quot;version&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;0.3.19&quot;</span><span class="hljs-punctuation">,</span><br>    ...<br><span class="hljs-punctuation">&#125;</span><span class="hljs-punctuation">,</span><br><span class="hljs-attr">&quot;simplemde&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">&#123;</span><br>    <span class="hljs-attr">&quot;version&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;1.11.2&quot;</span><span class="hljs-punctuation">,</span><br>    ...<br>    <span class="hljs-attr">&quot;requires&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">&#123;</span><br>    ...<br>    <span class="hljs-attr">&quot;marked&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;*&quot;</span><br>    <span class="hljs-punctuation">&#125;</span><br><span class="hljs-punctuation">&#125;</span><span class="hljs-punctuation">,</span><br>...<br></code></pre></td></tr></table></figure>
+
+<p>在<code>package-lock.json</code>中, 将<code>marked</code> 锁在 <code>version: 0.3.19</code></p>
+<blockquote>
+<p>通过 <code>yarn</code> 下载依赖 (yarn version: 1.22.19)</p>
+</blockquote>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><code class="hljs json"><span class="hljs-comment">// yarn.lock</span><br>...<br>marked@*<span class="hljs-punctuation">:</span><br>  version <span class="hljs-string">&quot;5.0.4&quot;</span><br>  ...<br><br>marked@^<span class="hljs-number">0.3</span><span class="hljs-number">.19</span><span class="hljs-punctuation">:</span><br>  version <span class="hljs-string">&quot;0.3.19&quot;</span><br>  ...<br><br>simplemde@^<span class="hljs-number">1.11</span><span class="hljs-number">.2</span><span class="hljs-punctuation">:</span><br>  version <span class="hljs-string">&quot;1.11.2&quot;</span><br>  ...<br>  dependencies<span class="hljs-punctuation">:</span><br>    ...<br>    marked <span class="hljs-string">&quot;*&quot;</span><br>...<br></code></pre></td></tr></table></figure>
+
+<p><code>yarn.lock</code> 中确有两个<code>marked</code>依赖版本</p>
+<h2 id="问题原因"><a href="#问题原因" class="headerlink" title="问题原因"></a>问题原因</h2><p>而一开始在项目中指定<code>marked: ^0.3.19</code>也就是为了限制子依赖版本在<code>0.3.*</code>, 但是现在使用<code>yarn</code>下载会校验子依赖中的<code>marked@*</code>,导致下载中断, 但是使用<code>npm</code>下载却不会有这个问题。</p>
+<p>虽然可以通过配置忽略版本校验，但是<strong>根本原因</strong>还是<code>yarn</code>重复校验下载了依赖。</p>
+<h2 id="了解yarn的install流程"><a href="#了解yarn的install流程" class="headerlink" title="了解yarn的install流程"></a>了解<code>yarn</code>的<a target="_blank" rel="noopener" href="https://yarnpkg.com/cli/install">install流程</a></h2><ul>
+<li><code>Resolving packages</code>: 分析包的依赖关系及版本信息</li>
+<li><code>Fetching packages</code>: 下载依赖项，存储到缓存中</li>
+<li><code>Linking dependencies</code>: 将缓存中的包扁平化的安装到项目当中去</li>
+<li><code>Building fresh packages</code>: 构建安装, 执行install阶段的scripts</li>
+</ul>
+<h3 id="测试校验"><a href="#测试校验" class="headerlink" title="测试校验"></a>测试校验</h3><ul>
+<li>首先清空缓存</li>
+</ul>
+<p><code>yarn</code> 查看缓存路径：<code>yarn cache dir</code>, 清空缓存：<code>yarn cache clean --force</code></p>
+<p><code>npm</code> 查看缓存路径：<code>npm config get cache</code>, 清空缓存：<code>npm cache clean --force</code></p>
+<p>使用<code>yarn</code>下载，下载失败</p>
+<p><img src="https://s1.ax1x.com/2023/08/03/pPiXFjH.png" srcset="/img/loading.gif" lazyload alt="pPiXFjH.png"></p>
+<p><img src="https://s1.ax1x.com/2023/08/03/pPiXAud.png" srcset="/img/loading.gif" lazyload alt="pPiXAud.png"></p>
+<blockquote>
+<p>这里倒是可以通过忽略<code>engines</code>来通过下载</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># 忽略engines校验</span><br>yarn config <span class="hljs-built_in">set</span> ignore-engines <span class="hljs-literal">true</span><br></code></pre></td></tr></table></figure>
+
+<h2 id="npm-install的过程发生了什么"><a href="#npm-install的过程发生了什么" class="headerlink" title="npm install的过程发生了什么"></a><code>npm install</code>的过程发生了什么</h2><p>当存在嵌套依赖和根级依赖冲突时，npm会根据以下规则来确定使用哪个依赖项：</p>
+<ul>
+<li>直接依赖优先： 根级依赖的优先级更高，它们将覆盖任何嵌套依赖中的相同包。</li>
+<li>版本范围解析： 如果根级依赖和嵌套依赖都有对同一个包的依赖，并且它们的版本范围不冲突，npm会尽量满足两者的依赖关系，并使用符合两者版本要求的最高版本。</li>
+<li>版本冲突解析： 如果根级依赖和嵌套依赖对同一个包有不兼容的版本要求，npm会尝试解决版本冲突，通常会选择满足所有依赖关系的最高版本，并通过符号链接或软链接来确保正确的依赖关系。</li>
+</ul>
+<h3 id="npm如何解决有版本冲突的依赖包"><a href="#npm如何解决有版本冲突的依赖包" class="headerlink" title="npm如何解决有版本冲突的依赖包"></a><code>npm</code>如何解决有版本冲突的依赖包</h3><p>现在我一个项目有两个依赖, <code>marked@^0.3.19</code>, 和 自己发的包 <code>avatar0813-pkg-t</code></p>
+<p>其中<code>avatar0813-pkg-t</code>包依赖 <code>marked@^5.1.2</code></p>
+<p><img src="https://s1.ax1x.com/2023/08/03/pPiOQmR.png" srcset="/img/loading.gif" lazyload alt="pPiOQmR.png"></p>
+<p><img src="https://s1.ax1x.com/2023/08/03/pPiOKX9.png" srcset="/img/loading.gif" lazyload alt="pPiOKX9.png"></p>
+<p><img src="https://s1.ax1x.com/2023/08/03/pPiOu6J.md.png" srcset="/img/loading.gif" lazyload alt="pPiOu6J.md.png"></p>
+<blockquote>
+<p>问题: node_modules 中的<code>avatar0813-pkg-t</code> 包中间还有个node_modules</p>
+</blockquote>
+<p><strong>这正是npm install解决版本冲突策略，因为两个依赖<code>marked@^0.3.19</code>,<code>marked@^5.1.2</code>版本不兼容导致的，两个依赖都要，但是不能扁平化安装</strong></p>
+<p><img src="https://s1.ax1x.com/2023/08/03/pPiOnl4.png" srcset="/img/loading.gif" lazyload alt="pPiOnl4.png"></p>
+<blockquote>
+<p>如果将<code>avatar0813-pkg-t</code> 包中依赖改为的<code>marked@*</code>以兼容外部版本则不会出现这个问题。</p>
+</blockquote>
+<blockquote>
+<p>亦或这指定<code>resolutions</code>依赖从而解决冲突</p>
+</blockquote>
+<p><img src="https://s1.ax1x.com/2023/08/03/pPixWGV.md.png" srcset="/img/loading.gif" lazyload alt="pPixWGV.md.png"></p>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div></div>
+      <div>https://avatar0813.github.io/2023/08/03/frontEnd/从一次依赖下载失败理解npm、yarn install策略/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>avatar</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2023年8月3日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2023/07/30/frontEnd/eslint-prettier-lint-staged-husky%E9%A1%B9%E7%9B%AE%E7%AE%A1%E7%90%86/" title="eslint+prettier+lint-staged+husky项目管理">
+                        <span class="hidden-mobile">eslint+prettier+lint-staged+husky项目管理</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.0/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.18.2/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>
