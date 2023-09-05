@@ -149,7 +149,7 @@ yarn config set ignore-engines true
 
 ![pPiOKX9.png](https://s1.ax1x.com/2023/08/03/pPiOKX9.png)
 
-![pPiOu6J.md.png](https://s1.ax1x.com/2023/08/03/pPiOu6J.md.png)
+![pPr2oJs.md.png](https://s1.ax1x.com/2023/09/05/pPr2oJs.md.png)
 
 > 问题: node_modules 中的`avatar0813-pkg-t` 包中间还有个node_modules
 
